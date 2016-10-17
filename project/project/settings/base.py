@@ -27,7 +27,7 @@ with open(key) as data_file:
     SECRET_KEY = data["secret_key"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -81,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-# CANNOT DO SIMPLE COPY PASTE IN LOCLA must write again the BASE_DIR code
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
@@ -124,37 +123,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-#  AWS S3 BOTO SETTINGS
-#
-# AWS_ACCESS_KEY_ID = "AKIAJIDELXN3YCIG7CLA"
-# AWS_SECRET_ACCESS_KEY = "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"
-# AWS_STORAGE_BUCKET_NAME = "ailabsexample"
-# STATICFILES_STORAGE = 'core.classes.StaticStorage' # For moving our staticfiles to the bucket
-# DEFAULT_FILE_STORAGE = 'core.classes.MediaStorage' # For moving our media files to the bucket
-# AWS_S3_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
+# AWS S3 BOTO SETTINGS
+# STATIC AND MEDIA SETTINGS ARE IN the local.py and production.py
+AWS_ACCESS_KEY_ID = "AKIAJIDELXN3YCIG7CLA"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "ailabsexample"
+STATICFILES_STORAGE = 'core.classes.StaticStorage' # For moving our staticfiles to the bucket
+DEFAULT_FILE_STORAGE = 'core.classes.MediaStorage' # For moving our media files to the bucket
+AWS_S3_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
+AWS_QUERYSTRING_AUTH = False # This is used to remove the extra paramters like Signatures and ACCESS KEY ID
+# AWS_CLOUDFRONT_DOMAIN = ""
 
 # Speeds up your site
 # AWS_HEADERS = {
 #     'Expires': 'Thu, 15 Apr 2010 20:00:00 GMT',
 #     'Cache-Control': 'max-age=86400',
 # }
-
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-# UNCOMMENT STATIC ROOT to run collectstatic
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# COMMENT STATIC_PATH to run collecstatic
-STATIC_PATH = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
-# STATIC_URL = 'https://%s/static/' % AWS_S3_DOMAIN
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-# MEDIA_URL = 'https://%s/media/' % AWS_S3_DOMAIN
-
-# COMMENT STATICFIELS_DIRS to run collecstatic
-STATICFILES_DIRS = (STATIC_PATH, )
-
