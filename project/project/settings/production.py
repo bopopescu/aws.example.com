@@ -20,6 +20,9 @@ if not settings.DEBUG:
     	}
     }
 
+	STATICFILES_STORAGE = 'core.classes.StaticStorage' # For moving our staticfiles to the bucket
+	DEFAULT_FILE_STORAGE = 'core.classes.MediaStorage' # For moving our media files to the bucket
+
 	STATIC_ROOT = os.path.join(settings.BASE_DIR, 'static')
 	STATIC_URL = 'https://%s/static/' % settings.AWS_S3_DOMAIN
 
