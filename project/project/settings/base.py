@@ -25,6 +25,8 @@ with open(key) as data_file:
     data = json.load(data_file)
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = data["secret_key"]
+    AWS_ACCESS_KEY_ID = data["aws_access_key_id"] # Change this with something else
+    AWS_SECRET_ACCESS_KEY = data["aws_secret_access_key"] # Change this with something else
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -125,9 +127,7 @@ USE_TZ = True
 
 # AWS S3 BOTO SETTINGS
 # STATIC AND MEDIA SETTINGS ARE IN the local.py and production.py
-AWS_ACCESS_KEY_ID = "AKIAJIDELXN3YCIG7CLA"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "ailabsexample"
+AWS_STORAGE_BUCKET_NAME = "ailabsexample" # Change this with something else
 STATICFILES_STORAGE = 'core.classes.StaticStorage' # For moving our staticfiles to the bucket
 DEFAULT_FILE_STORAGE = 'core.classes.MediaStorage' # For moving our media files to the bucket
 AWS_S3_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
