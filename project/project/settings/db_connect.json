@@ -1,0 +1,8 @@
+{
+	"db_engine":"django.db.backends.postgresql_psycopg2",
+	"db_name":"project412452",
+	"db_user":"armadadean446431",
+	"db_password":"deanarmada13asdrsd",
+	"db_host":"project.sample.us-west-2.rds.amazonaws.com",
+	"db_port":"5432"
+}

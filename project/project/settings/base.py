@@ -25,11 +25,11 @@ with open(key) as data_file:
     data = json.load(data_file)
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = data["secret_key"]
-    AWS_ACCESS_KEY_ID = data["aws_access_key_id"] # Change this with something else
-    AWS_SECRET_ACCESS_KEY = data["aws_secret_access_key"] # Change this with something else
+    AWS_ACCESS_KEY_ID = data["aws_access_key_id"]
+    AWS_SECRET_ACCESS_KEY = data["aws_secret_access_key"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 

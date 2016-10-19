@@ -2,6 +2,7 @@ from django.conf import settings
 
 if not settings.DEBUG:
 	import os
+	import json
 	print "--------"
 	print "ON PRODUCTION"
 
@@ -9,14 +10,24 @@ if not settings.DEBUG:
 
 	# Database
 	# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+	key = os.path.join(settings.SETTINGS_DIR, "db_connect.json")
+	with open(key) as data_file:
+	    data = json.load(data_file)
+	    DB_ENGINE = data["db_engine"]
+	    DB_NAME = data["db_name"]
+	    DB_USER = data["db_user"]
+	    DB_PASSWORD = data["db_password"]
+	    DB_HOST = data["db_host"]
+	    DB_PORT = data["db_port"]
+
 	DATABASES = {
     	'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'example_com',
-        'USER': 'deanarmada',
-        'PASSWORD': 'd3@narmada13',
-        'HOST': 'localhost', # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        'PORT': '', 
+	        'ENGINE': DB_ENGINE,
+	        'NAME': DB_NAME,
+	        'USER': DB_USER,
+	        'PASSWORD': DB_PASSWORD,
+	        'HOST': DB_HOST,
+	        'PORT': DB_PORT, 
     	}
     }
 

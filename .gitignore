@@ -4,3 +4,4 @@ __pycache__/
 .Python
 db.sqlite3
 /* keys.json */
+/* db_connect.json */
