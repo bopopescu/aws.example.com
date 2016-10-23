@@ -115,6 +115,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(settings.BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(settings.BASE_DIR, 'media')
 
 # AWS S3 BOTO SETTINGS
 # STATIC AND MEDIA SETTINGS ARE IN the local.py and production.py
